@@ -8,11 +8,12 @@
     python main.py names-by-class — задача 5: популярные имена по классам
     python main.py older      — задача 6: пассажиры старше 44 лет
     python main.py younger-males — задача 7: мужчины младше 44 лет
+    python main.py cabins     — задача 8: количество n-местных кают
 """
 
 import sys
 
-from titanic import filters, loader, names, overview, survival
+from titanic import cabins, filters, loader, names, overview, survival
 
 # Реестр задач: имя команды -> функция, принимающая DataFrame
 TASKS = {
@@ -22,6 +23,7 @@ TASKS = {
     "names-by-class": names.run_by_class,
     "older": filters.run,
     "younger-males": filters.run_younger_males,
+    "cabins": cabins.run,
 }
 
 
