@@ -4,16 +4,18 @@
     python main.py            — список доступных задач
     python main.py overview   — задача 2: информация о датасете
     python main.py survival   — задача 3: выживаемость по классам
+    python main.py names      — задача 4: популярные имена
 """
 
 import sys
 
-from titanic import loader, overview, survival
+from titanic import loader, names, overview, survival
 
 # Реестр задач: имя команды -> функция, принимающая DataFrame
 TASKS = {
     "overview": overview.run,
     "survival": survival.run,
+    "names": names.run,
 }
 
 
