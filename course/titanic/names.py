@@ -61,3 +61,22 @@ def run(df: pd.DataFrame) -> None:
     for sex, label in (("male", "мужское"), ("female", "женское")):
         name, count = most_popular(df, sex)
         print(f"{label}: {name} ({count} чел.)")
+
+
+def most_popular_by_class(df: pd.DataFrame) -> pd.DataFrame:
+    """Самое частое имя каждого пола в каждом классе.
+
+    Переиспользуем most_popular(), просто подавая ей срез по классу.
+    """
+    rows = []
+    for pclass in sorted(df["Pclass"].unique()):
+        in_class = df[df["Pclass"] == pclass]
+        for sex, label in (("male", "мужское"), ("female", "женское")):
+            name, count = most_popular(in_class, sex)
+            rows.append({"Pclass": pclass, "пол": label, "имя": name, "человек": count})
+    return pd.DataFrame(rows).set_index(["Pclass", "пол"])
+
+
+def run_by_class(df: pd.DataFrame) -> None:
+    print("--- Самые популярные имена в каждом классе ---")
+    print(most_popular_by_class(df))

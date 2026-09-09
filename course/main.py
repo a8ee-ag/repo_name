@@ -5,6 +5,7 @@
     python main.py overview   — задача 2: информация о датасете
     python main.py survival   — задача 3: выживаемость по классам
     python main.py names      — задача 4: популярные имена
+    python main.py names-by-class — задача 5: популярные имена по классам
 """
 
 import sys
@@ -16,6 +17,7 @@ TASKS = {
     "overview": overview.run,
     "survival": survival.run,
     "names": names.run,
+    "names-by-class": names.run_by_class,
 }
 
 
