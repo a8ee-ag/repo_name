@@ -7,6 +7,7 @@
     python main.py names      — задача 4: популярные имена
     python main.py names-by-class — задача 5: популярные имена по классам
     python main.py older      — задача 6: пассажиры старше 44 лет
+    python main.py younger-males — задача 7: мужчины младше 44 лет
 """
 
 import sys
@@ -20,6 +21,7 @@ TASKS = {
     "names": names.run,
     "names-by-class": names.run_by_class,
     "older": filters.run,
+    "younger-males": filters.run_younger_males,
 }
 
 
