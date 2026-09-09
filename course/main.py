@@ -6,11 +6,12 @@
     python main.py survival   — задача 3: выживаемость по классам
     python main.py names      — задача 4: популярные имена
     python main.py names-by-class — задача 5: популярные имена по классам
+    python main.py older      — задача 6: пассажиры старше 44 лет
 """
 
 import sys
 
-from titanic import loader, names, overview, survival
+from titanic import filters, loader, names, overview, survival
 
 # Реестр задач: имя команды -> функция, принимающая DataFrame
 TASKS = {
@@ -18,6 +19,7 @@ TASKS = {
     "survival": survival.run,
     "names": names.run,
     "names-by-class": names.run_by_class,
+    "older": filters.run,
 }
 
 
