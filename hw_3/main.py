@@ -1,0 +1,43 @@
+"""Точка входа: загружает данные и запускает выбранную задачу.
+
+Использование:
+    python main.py            — список доступных задач
+    python main.py overview   — задача 2: информация о датасете
+    python main.py survival   — задача 3: выживаемость по классам
+    python main.py names      — задача 4: популярные имена
+    python main.py names-by-class — задача 5: популярные имена по классам
+    python main.py older      — задача 6: пассажиры старше 44 лет
+    python main.py younger-males — задача 7: мужчины младше 44 лет
+    python main.py cabins     — задача 8: количество n-местных кают
+"""
+
+import sys
+
+from titanic import cabins, filters, loader, names, overview, survival
+
+# Реестр задач: имя команды -> функция, принимающая DataFrame
+TASKS = {
+    "overview": overview.run,
+    "survival": survival.run,
+    "names": names.run,
+    "names-by-class": names.run_by_class,
+    "older": filters.run,
+    "younger-males": filters.run_younger_males,
+    "cabins": cabins.run,
+}
+
+
+def main(argv: list[str]) -> int:
+    if not argv or argv[0] not in TASKS:
+        print("Доступные задачи:")
+        for name in TASKS:
+            print(f"  python main.py {name}")
+        return 1
+
+    df = loader.load()
+    TASKS[argv[0]](df)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))
