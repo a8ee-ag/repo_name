@@ -6,7 +6,7 @@ import pandas as pd
 
 # Корень проекта = папка на уровень выше пакета titanic/
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_CSV = PROJECT_ROOT / "Data" / "train.csv"
+DEFAULT_CSV = PROJECT_ROOT / "DataSet" / "train.csv"
 
 
 def load(path: Path | str = DEFAULT_CSV) -> pd.DataFrame:
