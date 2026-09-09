@@ -3,15 +3,17 @@
 Использование:
     python main.py            — список доступных задач
     python main.py overview   — задача 2: информация о датасете
+    python main.py survival   — задача 3: выживаемость по классам
 """
 
 import sys
 
-from titanic import loader, overview
+from titanic import loader, overview, survival
 
 # Реестр задач: имя команды -> функция, принимающая DataFrame
 TASKS = {
     "overview": overview.run,
+    "survival": survival.run,
 }
 
 
